@@ -9,8 +9,10 @@ def index():
   '''
   View home page function that returns the index/home page and its data.
   '''
+  
+  title = 'Trending News'
   NewsLink = 'News'
-  return render_template('index.html', NewsLink = NewsLink)
+  return render_template('index.html', title = title, NewsLink = NewsLink)
 
 
 #Article ID - Navigate to specific news article
