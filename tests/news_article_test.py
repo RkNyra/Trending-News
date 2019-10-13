@@ -1,7 +1,7 @@
 import unittest
 from app import models
 Article = models.news_article.Article
-Source = models.news_source.Source
+
 
 class ArticleTest(unittest.TestCase):
   '''
@@ -15,7 +15,8 @@ class ArticleTest(unittest.TestCase):
     
     def _test_instance(self):
       self.assertTrue(isinstance(self.new_news_article, Article))
-    
-    if __name__ == '__main__':
-      unittest.main()
+  
+
+if __name__ == '__main__':
+  unittest.main()
           
