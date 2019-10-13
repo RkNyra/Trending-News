@@ -10,8 +10,20 @@
 </head>
 
 <body>
-    <h1>Trending News</h1>
+
+    <!-- Trending News Updates -->
+
+    <h3>Trending News Updates</h3>
+    <ul>
+        {% for update in updates %}
+        <li>
+            {{update.title}}
+        </li>
+        {% endfor %}
+    </ul>
+
     <h4>{{ NewsLink }}</h4>
+
 </body>
 
 </html>
