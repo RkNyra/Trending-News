@@ -30,3 +30,25 @@ def get_news(updates):
       news_articles = process_articles(news_articles_list)
 
   return news_articles
+
+
+def process_articles(article_list):
+  '''
+  Function that processes the news articles and transforms them to a list of objects
+  
+  
+  Args:
+    article_list: A list of dictionaries that contain news article details
+  
+  Returns:
+    news_articles: A list of news article objects
+  '''
+  
+  news_articles = []
+  for article in article_list:
+    urlToImage = article.get('urlToImage')
+    description = article.get('description')
+    publishedAt = article.get('publishedAt')
+    url = article.get('url')
+  
+  return news_articles

@@ -1,5 +1,6 @@
 from flask import render_template
 from app import app
+from requests import get_news
 
 #Views
 
@@ -9,6 +10,10 @@ def index():
   '''
   View home page function that returns the index/home page and its data.
   '''
+  
+  #Getting news_updates
+  updates = get_news('updates')
+  print(updates)
   
   title = 'Trending News'
   NewsLink = 'News'
