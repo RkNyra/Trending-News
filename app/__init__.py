@@ -2,7 +2,7 @@ from flask import Flask
 from config import DevConfig
 
 #Initializing the application
-app = Flask(__name__, safehouse_relative_config = True)
+app = Flask(__name__,instance_relative_config = True)
 
 #Configuration set-up
 app.config.from_object(DevConfig)
