@@ -11,6 +11,9 @@ apikey = app.config['NEWS_API_KEY']
 #Get the news base url
 base_url = app.config["NEWS_API_BASE_URL"]
 
+#Get the articles base url
+article_base_url = app.config["ARTICLE_API_BASE_URL"]
+
 
 def get_news():
   '''
@@ -62,3 +65,48 @@ def process_sources(source_list):
 
 
 # Getting the news article(s)
+def get_articles(id):
+  '''
+  Function that gets the json articles response to the url request
+  '''
+  get_articles_url = article_base_url.format(id, apikey)
+
+  with urllib.request.urlopen(get_articles_url) as url:
+    get_articles_data = url.read()
+    get_articles_response = json.loads(get_articles_data)
+
+    news_articles = None
+
+    if get_articles_response['articles']:
+      news_articles_list = get_articles_response['articles']
+
+      news_articles = process_articles(news_articles_list)
+
+  return news_articles
+
+
+def process_articles(articles_list):
+  '''
+  Function that processes the news articles and transforms them to a list of objects
+  
+  
+  Args:
+    articles_list: A list of dictionaries that contain news article details
+  
+  Returns:
+    news_articles: A list of news article objects
+  '''
+
+  news_articles = []
+  for article in articles_list:
+    urlToImage = article.get('urlToImage')
+    description = article.get('description')
+    publishedAt = article.get('publishedAt')
+    url = article.get('url')
+   
+
+    if url:
+      new_article_object = Article(urlToImage, description, publishedAt, url)
+      news_articles.append(new_article_object)
+
+  return news_articles

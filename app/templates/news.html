@@ -4,7 +4,12 @@
 
 {% block content %}
 
-<!-- to insert news sources/article content here -->
+<div class="container">
+    <h3> Trending News Articles </h3>
+    <div class="row">
+        {{ macro.displaySourceList(name) }}
+    </div>
+</div>
 
 {% endblock %}
 

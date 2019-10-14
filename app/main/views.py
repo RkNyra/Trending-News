@@ -1,6 +1,6 @@
 from flask import render_template, url_for
 from app import app
-from ..requests import get_news
+from ..requests import get_news, get_articles
 
 #Views
 
@@ -24,9 +24,11 @@ def index():
 
 #News-Article Page/ Article ID - Navigate to specific news article
 @app.route('/news/<id>')
-def news(id):
+def articles(id):
   '''
   View news page function that returns the news article page with the respective news.
   '''
   title = 'Trending News'
-  return render_template('news.html', title = title, id = id)
+  articles_names = get_articles(id)
+  print(articles_names)
+  return render_template('news.html', title = title, nswart = articles_names)
