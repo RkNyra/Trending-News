@@ -1,3 +1,5 @@
+<!-- ================= news sources ============================ -->
+
 {% macro displaySourceList(source_list) %}
 <!-- start macro(above) and loop(below) -->
 {% for source in source_list %}
@@ -7,12 +9,35 @@
         <ul>
             <!-- <li>{{ source.id }}</li> -->
             <li>
-                <a href="/news/<id>{{ source.name }}">{{source.name}}</a></li>
+                <a href="/news/{{ source.id }}">{{source.name}}</a></li>
             <li>{{ source.description }}</li>
             <li>{{ source.url }}</li>
             <li>{{ source.category }}</li>
             <li>{{ source.country }}</li>
         </ul>
+    </div>
+</div>
+
+{% endfor %}
+<!-- end the loop -->
+{% endmacro %}
+
+
+
+<!-- =============== News Articles ===================== -->
+
+{% macro displayArticleList(article_list) %}
+<!-- start macro(above) and loop(below) -->
+{% for article in article_list %}
+
+<div class="card col-lg-3 col-md-6 col-sm-12 border-primary mb-3">
+    <img src="{{ article.urlToImage }}" class="card-img-top" alt="News Image">
+    <div class="card-body">
+        <p>{{ article.description }}</p>
+        <p><a href="{{ article.url }}"> Read More</a></p>
+    </div>
+    <div class="card-footer">
+        {{ article.publishedAt }}
     </div>
 </div>
 

@@ -11,7 +11,7 @@ def index():
   View home page function that returns the index/home page and its data.
   '''
   
-  #Getting news names
+  #Getting news sources
   news_names = get_news()
   print(news_names)
   
@@ -28,7 +28,9 @@ def articles(id):
   '''
   View news page function that returns the news article page with the respective news.
   '''
-  title = 'Trending News'
+  # Getting news articles
   articles_names = get_articles(id)
   print(articles_names)
-  return render_template('news.html', title = title, nswart = articles_names)
+  
+  title = 'Trending News'
+  return render_template('news.html', title = title, newsart = articles_names)
