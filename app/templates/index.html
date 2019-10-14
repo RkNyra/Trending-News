@@ -1,53 +1,14 @@
 {% extends 'base.html' %} {% import 'macros.html' as macro%}
 
-<!-- <!DOCTYPE html>
-<html>
 
-<head>
-    <meta charset="utf-8"> {% if title %}
-    <title> {{ title }}</title>
-    {% else %}
-    <title>TN - Home</title>
-    {% endif %}
-</head>
+<!-- Styles block -->
+{% block styles %} {{super()}}
+<link rel="stylesheet" href="{{url_for('static',filename='css/index.css')}}">
+<link href="https://fonts.googleapis.com/css?family=Yantramanav&display=swap" rel="stylesheet"> {% endblock %}
 
-<body> -->
-
-<!-- Trending News Names -->
-<!-- 
-    <h3>Trending News</h3>
-    <ul>
-        {% for news_name in name %}
-        <li>
-            {{news_name.name}}
-        </li>
-        {% endfor %}
-    </ul>
-
-    <h4>{{ NewsLink }}</h4> -->
-
-<!-- ================================ MACROS ======================== -->
-<!-- Trending News -->
-
-<!-- <h3> Trending News </h3>
-<ul>
-    {{ macro.displaySourceList(name) }}
-</ul> -->
-
-
-<!-- To figure out right "news-categories" and display them -->
-<!-- 
-</body>
-
-</html> -->
-
-<!-- =============== TEMPLATE INHERITANCE - BASE.HTML ==================== -->
 
 <!-- content block  -->
 {% block content %}
-<!-- TRENDING NEWS -->
-<!-- <div class="container"> -->
-<!-- <div class="row"> -->
 
 <div class="container-fluid">
     <h3> Trending News </h3>
@@ -55,7 +16,5 @@
         {{ macro.displaySourceList(name) }}
     </div>
 </div>
-<!-- To figure out right "news-categories" and display them here -->
-<!-- </div> -->
-<!-- </div> -->
+
 {% endblock %}
