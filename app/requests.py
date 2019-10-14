@@ -62,5 +62,3 @@ def process_sources(source_list):
 
 
 # Getting the news article(s)
-
-  

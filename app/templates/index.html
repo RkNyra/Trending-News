@@ -46,9 +46,16 @@
 <!-- content block  -->
 {% block content %}
 <!-- TRENDING NEWS -->
-<h3> Trending News </h3>
-<ul>
-    {{ macro.displaySourceList(name) }}
-</ul>
+<!-- <div class="container"> -->
+<!-- <div class="row"> -->
+
+<div class="container">
+    <h3> Trending News </h3>
+    <div class="row">
+        {{ macro.displaySourceList(name) }}
+    </div>
+</div>
 <!-- To figure out right "news-categories" and display them here -->
+<!-- </div> -->
+<!-- </div> -->
 {% endblock %}
