@@ -4,17 +4,19 @@
 <!-- start macro(above) and loop(below) -->
 {% for source in source_list %}
 
-<div class="col-lg-3 col-md-6 col-sm-12 card">
+<div class="col-lg-3 col-md-6 col-sm-12">
 
-    <div class="card border-primary mb-3">
+    <div class="card m-1 border-primary">
         <!-- <li>{{ source.id }}</li> -->
 
         <div class="card-header"> <a href="/news/{{ source.id }}">{{source.name}}</a></div>
         <div class="card-body text-info">
             <div class="card-text">
-                <p> {{ source.description }}</p>
-                <p> Category: {{ source.category }}</p>
-                <p>Country: {{ source.country }}</p>
+                <p> {{ source.description|truncate(90) }}</p>
+                <div>
+                    <p> Category: {{ source.category }}</p>
+                    <p>Country: {{ source.country }}</p>
+                </div>
             </div>
         </div>
         <div class="card-footer">
@@ -26,15 +28,6 @@
 {% endfor %}
 <!-- end the loop -->
 {% endmacro %}
-
-<!-- <div class="card-header">Header</div>
-<div class="card-body text-primary">
-    <h5 class="card-title">Primary card title</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.
-    </p>
-</div> -->
-
-
 
 
 <!-- =============== News Articles ===================== -->

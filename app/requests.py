@@ -52,7 +52,7 @@ def process_sources(source_list):
   for source in source_list:
     id = source.get('id')
     name = source.get('name')
-    description = source.get('publishedAt')
+    description = source.get('description')
     url = source.get('url')
     category = source.get('category')
     country = source.get('country')
