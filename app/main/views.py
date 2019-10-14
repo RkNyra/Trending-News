@@ -1,11 +1,14 @@
-from flask import render_template, url_for
-from app import app
+from flask import render_template, redirect, request, url_for
+from . import main
+# from app import app
 from ..requests import get_news, get_articles
+from ..models import news_source, news_article
 
 #Views
 
 #Homepage
-@app.route('/')
+# @app.route('/')
+@main.route('/')
 def index():
   '''
   View home page function that returns the index/home page and its data.
@@ -23,7 +26,8 @@ def index():
 
 
 #News-Article Page/ Article ID - Navigate to specific news article
-@app.route('/news/<id>')
+# @app.route('/news/<id>')
+@main.route('/news/<id>')
 def articles(id):
   '''
   View news page function that returns the news article page with the respective news.
