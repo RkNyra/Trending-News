@@ -1,6 +1,6 @@
-{% import 'macros.html' as macro%}
+{% extends 'base.html' %} {% import 'macros.html' as macro%}
 
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html>
 
 <head>
@@ -11,10 +11,10 @@
     {% endif %}
 </head>
 
-<body>
+<body> -->
 
-    <!-- Trending News Names -->
-    <!-- 
+<!-- Trending News Names -->
+<!-- 
     <h3>Trending News</h3>
     <ul>
         {% for news_name in name %}
@@ -26,17 +26,29 @@
 
     <h4>{{ NewsLink }}</h4> -->
 
+<!-- ================================ MACROS ======================== -->
+<!-- Trending News -->
 
-    <!-- Trending News -->
-
-    <h3> Trending News </h3>
-    <ul>
-        {{ macro.displaySourceList(name) }}
-    </ul>
+<!-- <h3> Trending News </h3>
+<ul>
+    {{ macro.displaySourceList(name) }}
+</ul> -->
 
 
-    <!-- To figure out right "news-categories" and display them -->
-
+<!-- To figure out right "news-categories" and display them -->
+<!-- 
 </body>
 
-</html>
+</html> -->
+
+<!-- =============== TEMPLATE INHERITANCE - BASE.HTML ==================== -->
+
+<!-- content block  -->
+{% block content %}
+<!-- TRENDING NEWS -->
+<h3> Trending News </h3>
+<ul>
+    {{ macro.displaySourceList(name) }}
+</ul>
+<!-- To figure out right "news-categories" and display them here -->
+{% endblock %}
