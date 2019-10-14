@@ -11,13 +11,13 @@ def index():
   View home page function that returns the index/home page and its data.
   '''
   
-  #Getting news_updates by author
-  news_updates = get_news('updates')
-  print(news_updates)
+  #Getting news names
+  news_names = get_news('name')
+  print(news_names)
   
   title = 'Trending News'
   NewsLink = 'News'
-  return render_template('index.html', title = title, NewsLink = NewsLink)
+  return render_template('index.html', title=title, NewsLink=NewsLink, name=news_names)
 
 
 #News-Article Page/ Article ID - Navigate to specific news article

@@ -11,13 +11,13 @@
 
 <body>
 
-    <!-- Trending News Updates -->
+    <!-- Trending News Names -->
 
-    <h3>Trending News Updates</h3>
+    <h3>Trending News</h3>
     <ul>
-        {% for update in updates %}
+        {% for news_name in name %}
         <li>
-            {{update.title}}
+            {{news_name.name}}
         </li>
         {% endfor %}
     </ul>

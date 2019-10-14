@@ -3,7 +3,7 @@ class Config:
   '''
   General configuration parent class
   '''
-  NEWS_API_BASE_URL ='https://newsapi.org/sources/{}?api_key={}'
+  NEWS_API_BASE_URL = 'https://newsapi.org/v2/sources{}?api_key={}'
 
 #Production Configurations
 class ProdConfig(Config):
