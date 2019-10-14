@@ -4,23 +4,36 @@
 <!-- start macro(above) and loop(below) -->
 {% for source in source_list %}
 
-<div class="col-xs-12 col-sm-4 col-md-2 col-lg-2 card">
-    <div class="card-body">
-        <ul>
-            <!-- <li>{{ source.id }}</li> -->
-            <li>
-                <a href="/news/{{ source.id }}">{{source.name}}</a></li>
-            <li>{{ source.description }}</li>
-            <li>{{ source.url }}</li>
-            <li>{{ source.category }}</li>
-            <li>{{ source.country }}</li>
-        </ul>
+<div class="col-lg-3 col-md-6 col-sm-12 card">
+
+    <div class="card border-primary mb-3">
+        <!-- <li>{{ source.id }}</li> -->
+
+        <div class="card-header"> <a href="/news/{{ source.id }}">{{source.name}}</a></div>
+        <div class="card-body text-info">
+            <div class="card-text">
+                <p> {{ source.description }}</p>
+                <p> Category: {{ source.category }}</p>
+                <p>Country: {{ source.country }}</p>
+            </div>
+        </div>
+        <div class="card-footer">
+            <a href="/news/{{ source.id}}"> {{ source.url }}</a>
+        </div>
     </div>
 </div>
 
 {% endfor %}
 <!-- end the loop -->
 {% endmacro %}
+
+<!-- <div class="card-header">Header</div>
+<div class="card-body text-primary">
+    <h5 class="card-title">Primary card title</h5>
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.
+    </p>
+</div> -->
+
 
 
 
@@ -30,14 +43,16 @@
 <!-- start macro(above) and loop(below) -->
 {% for article in article_list %}
 
-<div class="card col-lg-3 col-md-6 col-sm-12 border-primary mb-3">
-    <img src="{{ article.urlToImage }}" class="card-img-top" alt="News Image">
-    <div class="card-body">
-        <p>{{ article.description }}</p>
-        <p><a href="{{ article.url }}"> Read More</a></p>
-    </div>
-    <div class="card-footer">
-        {{ article.publishedAt }}
+<div class="col-lg-3 col-md-6 col-sm-12">
+    <div class="card border-primary m-1">
+        <img src="{{ article.urlToImage }}" class="card-img-top" alt="News Image">
+        <div class="card-body">
+            <p>{{ article.description }}</p>
+            <p><a href="{{ article.url }}"> Read More</a></p>
+        </div>
+        <div class="card-footer">
+            {{ article.publishedAt }}
+        </div>
     </div>
 </div>
 
