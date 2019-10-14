@@ -1,4 +1,4 @@
-from flask import render_template
+from flask import render_template, url_for
 from app import app
 from ..requests import get_news
 
@@ -12,19 +12,21 @@ def index():
   '''
   
   #Getting news names
-  news_names = get_news('name')
+  news_names = get_news()
   print(news_names)
   
+  # <link rel = "shortcut icon" href = "{{ url_for('static', filename='TrendingNewsFavicon.ico') }}" >
+
   title = 'Trending News'
   NewsLink = 'News'
   return render_template('index.html', title=title, NewsLink=NewsLink, name=news_names)
 
 
 #News-Article Page/ Article ID - Navigate to specific news article
-@app.route('/news/<int:news_id>')
-def news(news_id):
+@app.route('/news/<id>')
+def news(id):
   '''
   View news page function that returns the news article page with the respective news.
   '''
   title = 'Trending News'
-  return render_template('news.html', title = title, id = news_id)
+  return render_template('news.html', title = title, id = id)

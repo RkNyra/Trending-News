@@ -1,6 +1,6 @@
 class Source:
   '''
-  Article class to define News Article Objects
+  Source class to define News Source Objects
   '''
 
   def __init__(self, id, name, description, url, category, country):

@@ -6,17 +6,17 @@ Article = news_article.Article
 Source = news_source.Source
 
 #Get the news api key
-api_key = app.config['NEWS_API_KEY']
+apikey = app.config['NEWS_API_KEY']
 
 #Get the news base url
 base_url = app.config["NEWS_API_BASE_URL"]
 
 
-def get_news(category):
+def get_news():
   '''
   Function that gets the json response to the url request
   '''
-  get_news_url = base_url.format(category,api_key)
+  get_news_url = base_url.format(apikey)
   
   with urllib.request.urlopen(get_news_url) as url:
     get_news_data = url.read()
@@ -30,6 +30,7 @@ def get_news(category):
       news_sources = process_sources(news_sources_list)
 
   return news_sources
+
 
 
 def process_sources(source_list):
@@ -53,4 +54,13 @@ def process_sources(source_list):
     category = source.get('category')
     country = source.get('country')
   
+    if name:
+      new_source_object = Source(id, name, description, url, category, country)
+      news_sources.append(new_source_object)
+    
   return news_sources
+
+
+# Getting the news article(s)
+
+  
